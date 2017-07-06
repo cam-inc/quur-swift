@@ -11,7 +11,7 @@
 		EADABD761F0DDD7F00C424B5 /* QuuRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADABD751F0DDD7F00C424B5 /* QuuRTests.swift */; };
 		EADABD781F0DDD7F00C424B5 /* QuuR.h in Headers */ = {isa = PBXBuildFile; fileRef = EADABD6A1F0DDD7F00C424B5 /* QuuR.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EADABD881F0DDD9100C424B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADABD871F0DDD9100C424B5 /* AppDelegate.swift */; };
-		EADABD8A1F0DDD9100C424B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADABD891F0DDD9100C424B5 /* ViewController.swift */; };
+		EADABD8A1F0DDD9100C424B5 /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADABD891F0DDD9100C424B5 /* ReaderViewController.swift */; };
 		EADABD8D1F0DDD9100C424B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EADABD8B1F0DDD9100C424B5 /* Main.storyboard */; };
 		EADABD8F1F0DDD9100C424B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EADABD8E1F0DDD9100C424B5 /* Assets.xcassets */; };
 		EADABD921F0DDD9100C424B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EADABD901F0DDD9100C424B5 /* LaunchScreen.storyboard */; };
@@ -21,6 +21,7 @@
 		EADABDA41F0E1A4600C424B5 /* QuuR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADABD671F0DDD7F00C424B5 /* QuuR.framework */; };
 		EADABDA61F0E1D0800C424B5 /* QuuR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADABD671F0DDD7F00C424B5 /* QuuR.framework */; };
 		EADABDA71F0E1D0800C424B5 /* QuuR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EADABD671F0DDD7F00C424B5 /* QuuR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EADABDAE1F0E386B00C424B5 /* GeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADABDAD1F0E386B00C424B5 /* GeneratorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +64,7 @@
 		EADABD771F0DDD7F00C424B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EADABD851F0DDD9100C424B5 /* QuuR-DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QuuR-DemoApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EADABD871F0DDD9100C424B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EADABD891F0DDD9100C424B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EADABD891F0DDD9100C424B5 /* ReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
 		EADABD8C1F0DDD9100C424B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EADABD8E1F0DDD9100C424B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EADABD911F0DDD9100C424B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -71,6 +72,7 @@
 		EADABD9C1F0DE01D00C424B5 /* QuuR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuuR.swift; sourceTree = "<group>"; };
 		EADABD9F1F0DE33300C424B5 /* function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = function.swift; sourceTree = "<group>"; };
 		EADABDA21F0E1A2900C424B5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		EADABDAD1F0E386B00C424B5 /* GeneratorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				EADABD871F0DDD9100C424B5 /* AppDelegate.swift */,
-				EADABD891F0DDD9100C424B5 /* ViewController.swift */,
+				EADABDAD1F0E386B00C424B5 /* GeneratorViewController.swift */,
+				EADABD891F0DDD9100C424B5 /* ReaderViewController.swift */,
 				EADABD8B1F0DDD9100C424B5 /* Main.storyboard */,
 				EADABD8E1F0DDD9100C424B5 /* Assets.xcassets */,
 				EADABD901F0DDD9100C424B5 /* LaunchScreen.storyboard */,
@@ -356,7 +359,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EADABD8A1F0DDD9100C424B5 /* ViewController.swift in Sources */,
+				EADABD8A1F0DDD9100C424B5 /* ReaderViewController.swift in Sources */,
+				EADABDAE1F0E386B00C424B5 /* GeneratorViewController.swift in Sources */,
 				EADABD881F0DDD9100C424B5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

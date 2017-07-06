@@ -12,10 +12,20 @@ import AVFoundation
 public struct Code {
 
     public private(set) var image: UIImage?
-    public private(set) var text: String
+    public var text: String {
+        didSet {
+            image = generate(from: text, scaleX: quality.rawValue, scaleY: quality.rawValue)
+        }
+    }
+    public var quality: Quality {
+        didSet {
+            image = generate(from: text, scaleX: quality.rawValue, scaleY: quality.rawValue)
+        }
+    }
 
     public init(from: String, quality: Quality) {
-        text = from
+        self.text = from
+        self.quality = quality
         image = generate(from: text, scaleX: quality.rawValue, scaleY: quality.rawValue)
     }
 }
@@ -33,7 +43,24 @@ public protocol ReaderDidDetectQRCode: NSObjectProtocol {
 public class Reader: UIView {
 
     fileprivate let captureSession = AVCaptureSession()
-    fileprivate var videoLayer: AVCaptureVideoPreviewLayer?
+    fileprivate let videoDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+    fileprivate var videoLayer: AVCaptureVideoPreviewLayer? {
+        willSet {
+            videoLayer?.removeFromSuperlayer()
+        }
+    }
+
+    fileprivate var videoInput: AVCaptureDeviceInput? {
+        willSet {
+            captureSession.removeInput(videoInput)
+        }
+    }
+
+    fileprivate var metadataOutput: AVCaptureMetadataOutput? {
+        willSet {
+            captureSession.removeOutput(metadataOutput)
+        }
+    }
 
     public weak var delegate: ReaderDidDetectQRCode?
 
@@ -43,15 +70,14 @@ public class Reader: UIView {
             return
         }
 
-        let videoDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         do {
-            let videoInput = try AVCaptureDeviceInput(device: videoDevice)
+            videoInput = try AVCaptureDeviceInput(device: videoDevice)
             captureSession.addInput(videoInput)
 
-            let metadataOutput = AVCaptureMetadataOutput()
+            metadataOutput = AVCaptureMetadataOutput()
             captureSession.addOutput(metadataOutput)
-            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+            metadataOutput?.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            metadataOutput?.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
 
             guard let video = AVCaptureVideoPreviewLayer(session: captureSession) else {
                 return
@@ -61,8 +87,8 @@ public class Reader: UIView {
             layer.addSublayer(video)
             videoLayer = video
 
-            DispatchQueue.global(qos: .userInitiated).async {
-                self.captureSession.startRunning()
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                self?.captureSession.startRunning()
             }
 
         } catch let error {

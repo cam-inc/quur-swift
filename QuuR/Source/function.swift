@@ -1,5 +1,5 @@
 //
-//  function.swift
+//  Generator.swift
 //  QuuR
 //
 //  Created by 江尻 幸生 on 2017/07/06.
