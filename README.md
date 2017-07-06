@@ -4,6 +4,21 @@
 
 Quur-swift makes it easy to deal with QR Code data in Swift.
 
+## Requirements
+
+- iOS 8.0+
+- Xcode 8
+
+## Carthage
+
+You can use [Carthage](https://github.com/Carthage/Carthage) to install `Quur-swift` by adding it to your `Cartfile`:
+
+```
+github "cam-inc/quur-swift"
+```
+
+Don't forget to add `--use-ssh` flag to Carthage command.
+
 ## Usage
 
 Generate a QR Code from a given string.
