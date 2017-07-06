@@ -13,15 +13,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
 
-        let code = QuuR.Code(from: "http://www.camobile.com", quality: .high)
-        let imageView = UIImageView(image: code.image)
-        view.addSubview(imageView)
+        let reader = QuuR.Reader(frame: view.frame)
+        reader.delegate = self
+        view.addSubview(reader)
+        reader.startDetection()
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension ViewController: ReaderDidDetectQRCode {
+
+    public func reader(_ reader: Reader, didDetect text: String) {
+        print(text)
+        reader.stopDetection()
     }
 }
