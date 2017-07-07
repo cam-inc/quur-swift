@@ -21,7 +21,9 @@ Don't forget to add `--use-ssh` flag to Carthage command.
 
 ## Usage
 
-Generate a QR Code from a given string.
+In iOS10+, you will need first to reasoning about the camera use. For that you'll need to add the **Privacy - Camera Usage Description** *(NSCameraUsageDescription)* field in your Info.plist:
+
+### Generate a QR Code from a given string.
 
 ```swift
 let code = QuuR.Code(from: "https://github.com/", quality: .high)
@@ -29,7 +31,32 @@ let imageView = UIImageView(image: code.image)
 view.addSubview(imageView)
 ```
 
-## TODO
+### Read a text from a QR Code.
 
-- [x] Generate a QR Code
-- [x] Read a QR Code
+```swift
+class ViewController: UIViewController {
+    let reader = QuuR.Reader()
+
+    override func viewDidLoad() {
+
+        super.viewDidLoad()
+
+        // Set a desired frame size
+        reader.frame = view.frame
+
+        // Called when detected a qr code
+        reader.delegate = self
+
+        view.addSubview(reader)
+        reader.startDetection()
+    }
+}
+
+extension ViewController: ReaderDidDetectQRCode {
+
+    public func reader(_ reader: Reader, didDetect text: String) {
+        print(text)
+        reader.stopDetection()
+    }
+}
+```
