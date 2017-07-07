@@ -8,9 +8,9 @@
 
 import Foundation
 
-internal func generate(from string: String, scaleX: CGFloat, scaleY: CGFloat) -> UIImage? {
+internal func generate(from string: String, encoding: String.Encoding, scaleX: CGFloat, scaleY: CGFloat) -> UIImage? {
 
-    let data = string.data(using: String.Encoding.utf8)
+    let data = string.data(using: encoding)
 
     guard let filter = CIFilter(name: "CIQRCodeGenerator") else {
         return nil
