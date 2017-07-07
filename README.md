@@ -32,4 +32,4 @@ view.addSubview(imageView)
 ## TODO
 
 - [x] Generate a QR Code
-- [ ] Read a QR Code
+- [x] Read a QR Code
