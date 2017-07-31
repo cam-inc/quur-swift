@@ -15,13 +15,15 @@
 		EADABD8D1F0DDD9100C424B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EADABD8B1F0DDD9100C424B5 /* Main.storyboard */; };
 		EADABD8F1F0DDD9100C424B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EADABD8E1F0DDD9100C424B5 /* Assets.xcassets */; };
 		EADABD921F0DDD9100C424B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EADABD901F0DDD9100C424B5 /* LaunchScreen.storyboard */; };
-		EADABD9D1F0DE01D00C424B5 /* QuuR.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADABD9C1F0DE01D00C424B5 /* QuuR.swift */; };
 		EADABDA01F0DE33300C424B5 /* function.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADABD9F1F0DE33300C424B5 /* function.swift */; };
 		EADABDA31F0E1A2900C424B5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADABDA21F0E1A2900C424B5 /* AVFoundation.framework */; };
 		EADABDA41F0E1A4600C424B5 /* QuuR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADABD671F0DDD7F00C424B5 /* QuuR.framework */; };
-		EADABDA61F0E1D0800C424B5 /* QuuR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADABD671F0DDD7F00C424B5 /* QuuR.framework */; };
 		EADABDA71F0E1D0800C424B5 /* QuuR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EADABD671F0DDD7F00C424B5 /* QuuR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EADABDAE1F0E386B00C424B5 /* GeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADABDAD1F0E386B00C424B5 /* GeneratorViewController.swift */; };
+		EAEB74DE1F2F32E50034D073 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEEBAE81F2F2E4E00DAC6C9 /* Reader.swift */; };
+		EAEEBAE91F2F2E4E00DAC6C9 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEEBAE81F2F2E4E00DAC6C9 /* Reader.swift */; };
+		EAEEBAEB1F2F2E6D00DAC6C9 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEEBAEA1F2F2E6D00DAC6C9 /* Code.swift */; };
+		EAEEBAED1F2F2E8000DAC6C9 /* Quality.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEEBAEC1F2F2E8000DAC6C9 /* Quality.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,10 +71,12 @@
 		EADABD8E1F0DDD9100C424B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EADABD911F0DDD9100C424B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EADABD931F0DDD9100C424B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EADABD9C1F0DE01D00C424B5 /* QuuR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuuR.swift; sourceTree = "<group>"; };
 		EADABD9F1F0DE33300C424B5 /* function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = function.swift; sourceTree = "<group>"; };
 		EADABDA21F0E1A2900C424B5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EADABDAD1F0E386B00C424B5 /* GeneratorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorViewController.swift; sourceTree = "<group>"; };
+		EAEEBAE81F2F2E4E00DAC6C9 /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
+		EAEEBAEA1F2F2E6D00DAC6C9 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
+		EAEEBAEC1F2F2E8000DAC6C9 /* Quality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quality.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +101,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EADABDA41F0E1A4600C424B5 /* QuuR.framework in Frameworks */,
-				EADABDA61F0E1D0800C424B5 /* QuuR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,8 +164,10 @@
 		EADABD9B1F0DDFF100C424B5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				EADABD9C1F0DE01D00C424B5 /* QuuR.swift */,
 				EADABD9F1F0DE33300C424B5 /* function.swift */,
+				EAEEBAEA1F2F2E6D00DAC6C9 /* Code.swift */,
+				EAEEBAEC1F2F2E8000DAC6C9 /* Quality.swift */,
+				EAEEBAE81F2F2E4E00DAC6C9 /* Reader.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -197,7 +202,6 @@
 				EADABD631F0DDD7F00C424B5 /* Frameworks */,
 				EADABD641F0DDD7F00C424B5 /* Headers */,
 				EADABD651F0DDD7F00C424B5 /* Resources */,
-				EADABD9E1F0DE12C00C424B5 /* swiftlint */,
 			);
 			buildRules = (
 			);
@@ -252,7 +256,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Yukio Ejiri";
 				TargetAttributes = {
 					EADABD661F0DDD7F00C424B5 = {
@@ -320,29 +324,14 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		EADABD9E1F0DE12C00C424B5 /* swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = swiftlint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		EADABD621F0DDD7F00C424B5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EADABD9D1F0DE01D00C424B5 /* QuuR.swift in Sources */,
+				EAEEBAEB1F2F2E6D00DAC6C9 /* Code.swift in Sources */,
+				EAEEBAE91F2F2E4E00DAC6C9 /* Reader.swift in Sources */,
+				EAEEBAED1F2F2E8000DAC6C9 /* Quality.swift in Sources */,
 				EADABDA01F0DE33300C424B5 /* function.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAEB74DE1F2F32E50034D073 /* Reader.swift in Sources */,
 				EADABD761F0DDD7F00C424B5 /* QuuRTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,6 +609,7 @@
 				EADABD7D1F0DDD7F00C424B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EADABD7E1F0DDD7F00C424B5 /* Build configuration list for PBXNativeTarget "QuuRTests" */ = {
 			isa = XCConfigurationList;
@@ -627,6 +618,7 @@
 				EADABD801F0DDD7F00C424B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EADABD941F0DDD9100C424B5 /* Build configuration list for PBXNativeTarget "QuuR-DemoApp" */ = {
 			isa = XCConfigurationList;
@@ -635,6 +627,7 @@
 				EADABD961F0DDD9100C424B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

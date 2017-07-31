@@ -1,51 +1,52 @@
 //
-//  QuuR.swift
+//  Reader.swift
 //  QuuR
 //
-//  Created by 江尻 幸生 on 2017/07/06.
+//  Created by 江尻 幸生 on 2017/07/31.
 //  Copyright © 2017年 Yukio Ejiri. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import AVFoundation
 
-public struct Code {
-
-    public private(set) var image: UIImage?
-    public var encoding = String.Encoding.utf8
-
-    public var text: String {
-        didSet {
-            image = generate(from: text, encoding: encoding, scaleX: quality.rawValue, scaleY: quality.rawValue)
-        }
-    }
-    public var quality: Quality {
-        didSet {
-            image = generate(from: text, encoding: encoding, scaleX: quality.rawValue, scaleY: quality.rawValue)
-        }
-    }
-
-    public init(from: String, quality: Quality) {
-        self.text = from
-        self.quality = quality
-        image = generate(from: text, encoding: encoding, scaleX: quality.rawValue, scaleY: quality.rawValue)
-    }
-}
-
-public enum Quality: CGFloat {
-    case low = 5.0
-    case middle = 8.0
-    case high = 13.0
-}
-
-public protocol ReaderDidDetectQRCode: NSObjectProtocol {
+@objc public protocol ReaderDidDetectQRCode: NSObjectProtocol {
     func reader(_ reader: Reader, didDetect text: String)
 }
 
 public class Reader: UIView {
 
+    let minZoomScale: CGFloat = 1.0
+
+    @IBInspectable public var maxZoomScale: CGFloat = 8.0 {
+        didSet {
+            guard minZoomScale <= maxZoomScale else {
+                return maxZoomScale = minZoomScale
+            }
+            guard 0 < maxZoomScale else {
+                return maxZoomScale = 1.0
+            }
+        }
+    }
+
+    @IBInspectable public var isZoomable: Bool = true {
+        didSet {
+            if isZoomable {
+                let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(Reader.pinchedGesture(gestureRecognizer:)))
+                addGestureRecognizer(pinchGesture)
+            } else {
+                for recognizer in gestureRecognizers ?? [] {
+                    removeGestureRecognizer(recognizer)
+                }
+            }
+        }
+    }
+
+    fileprivate var oldZoomScale: CGFloat = 1.0
+
     fileprivate let captureSession = AVCaptureSession()
+
     fileprivate let videoDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+
     fileprivate var videoLayer: AVCaptureVideoPreviewLayer? {
         willSet {
             videoLayer?.removeFromSuperlayer()
@@ -64,7 +65,11 @@ public class Reader: UIView {
         }
     }
 
+    #if TARGET_INTERFACE_BUILDER
+    @IBOutlet public weak var delegate: AnyObject?
+    #else
     public weak var delegate: ReaderDidDetectQRCode?
+    #endif
 
     public func startDetection() {
 
@@ -101,11 +106,42 @@ public class Reader: UIView {
     public func stopDetection() {
         captureSession.stopRunning()
     }
+
+    func pinchedGesture(gestureRecognizer: UIPinchGestureRecognizer) {
+        guard let video = videoDevice else {
+            return
+        }
+        do {
+            try video.lockForConfiguration()
+            var currentZoomScale: CGFloat = video.videoZoomFactor
+            let pinchZoomScale: CGFloat = gestureRecognizer.scale
+
+            if pinchZoomScale > 1.0 {
+                currentZoomScale = oldZoomScale + pinchZoomScale-1
+            } else {
+                currentZoomScale = oldZoomScale - (1 - pinchZoomScale) * oldZoomScale
+            }
+
+            if currentZoomScale < minZoomScale {
+                currentZoomScale = minZoomScale
+            } else if currentZoomScale > maxZoomScale {
+                currentZoomScale = maxZoomScale
+            }
+
+            if gestureRecognizer.state == .ended {
+                oldZoomScale = currentZoomScale
+            }
+
+            video.videoZoomFactor = currentZoomScale
+            video.unlockForConfiguration()
+        } catch  {
+
+        }
+    }
 }
 
 extension Reader: AVCaptureMetadataOutputObjectsDelegate {
 
-    // swiftlint:disable:next implicitly_unwrapped_optional
     public func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
 
         for any in metadataObjects {
@@ -116,9 +152,9 @@ extension Reader: AVCaptureMetadataOutputObjectsDelegate {
             guard
                 metadata.type == AVMetadataObjectTypeQRCode,
                 let text = metadata.stringValue else {
-                return
+                    return
             }
-
+            
             delegate?.reader(self, didDetect: text)
         }
     }
