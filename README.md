@@ -1,8 +1,8 @@
-# Quur-swift
+# QuuR-swift
 
 ![Platform](https://img.shields.io/badge/platforms-iOS%208.0+-333333.svg) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-Quur-swift makes it easy to deal with QR Code data in Swift.
+QuuR-swift makes it easy to deal with QR Code data in Swift.
 
 ## Requirements
 
@@ -11,10 +11,10 @@ Quur-swift makes it easy to deal with QR Code data in Swift.
 
 ## Carthage
 
-You can use [Carthage](https://github.com/Carthage/Carthage) to install `Quur-swift` by adding it to your `Cartfile`:
+You can use [Carthage](https://github.com/Carthage/Carthage) to install `QuuR-swift` by adding it to your `Cartfile`:
 
 ```
-github "cam-inc/quur-swift"
+github "cam-inc/QuuR-swift"
 ```
 
 Don't forget to add `--use-ssh` flag to Carthage command.
@@ -36,19 +36,10 @@ view.addSubview(imageView)
 
 ```swift
 class ViewController: UIViewController {
-    let reader = QuuR.Reader()
+    @IBOutlet weak var reader: Reader!
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
-
-        // Set a desired frame size
-        reader.frame = view.frame
-
-        // Called when detected a qr code
-        reader.delegate = self
-
-        view.addSubview(reader)
         reader.startDetection()
     }
 }
@@ -61,3 +52,24 @@ extension ViewController: ReaderDidDetectQRCode {
     }
 }
 ```
+
+### Use QuuR.Reader with Storyboard
+
+1. Drag and drop a UIView into the desired place.
+1. Show Identity Inspector.
+1. Set Class to `Reader` and Module to `QuuR`
+
+![](https://user-images.githubusercontent.com/2027132/28710960-e9721df0-73c0-11e7-9f26-7522f38e2a61.png)
+
+#### IBInspectable properties
+
+1. **isZoomable** Enable to zoom a video input by pinching a screen.
+1. **maxZoomScale** Set it to a positive CGFloat value.
+
+![](https://user-images.githubusercontent.com/2027132/28774239-ab21e3c8-7627-11e7-97c7-4e1d2255b141.png)
+
+#### Delegate
+
+Delegate property also settable from Storyboard by right-clicking a Reader view.
+
+![](https://user-images.githubusercontent.com/2027132/28774494-a4b9fb00-7628-11e7-9687-4423d59dd7ec.png)
