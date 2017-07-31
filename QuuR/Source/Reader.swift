@@ -154,7 +154,7 @@ extension Reader: AVCaptureMetadataOutputObjectsDelegate {
                 let text = metadata.stringValue else {
                     return
             }
-            
+
             delegate?.reader(self, didDetect: text)
         }
     }
