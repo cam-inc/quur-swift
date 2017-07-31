@@ -11,14 +11,10 @@ import QuuR
 
 class ReaderViewController: UIViewController {
 
-    let reader = QuuR.Reader()
+    @IBOutlet fileprivate weak var reader: Reader!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        reader.frame = view.frame
-        reader.delegate = self
-        view.addSubview(reader)
         reader.startDetection()
     }
 }
