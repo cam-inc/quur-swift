@@ -17,6 +17,10 @@ class ReaderViewController: UIViewController {
         super.viewDidLoad()
         reader.startDetection()
     }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
+    }
 }
 
 extension ReaderViewController: ReaderDidDetectQRCode {
