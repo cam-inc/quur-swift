@@ -154,7 +154,7 @@
                                     <constraint firstAttribute="width" secondItem="EQL-SF-Up6" secondAttribute="height" multiplier="1:1" id="Ht5-5z-lfP"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MSZ-KV-QOf">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MSZ-KV-QOf">
                                 <rect key="frame" x="36" y="577" width="303" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -163,13 +163,40 @@
                                     <outlet property="delegate" destination="5M2-ua-8EJ" id="lej-4K-ORF"/>
                                 </connections>
                             </textField>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LFY-0T-KoL">
+                                <rect key="frame" x="34" y="419" width="307" height="31"/>
+                                <connections>
+                                    <action selector="updateRGB:" destination="5M2-ua-8EJ" eventType="valueChanged" id="1NW-sU-Bh6"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="qC0-aC-Il2">
+                                <rect key="frame" x="34" y="457" width="307" height="31"/>
+                                <connections>
+                                    <action selector="updateRGB:" destination="5M2-ua-8EJ" eventType="valueChanged" id="eAr-6z-fon"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="47D-pp-0KW">
+                                <rect key="frame" x="34" y="495" width="307" height="31"/>
+                                <connections>
+                                    <action selector="updateRGB:" destination="5M2-ua-8EJ" eventType="valueChanged" id="e8y-e6-mJz"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="LFY-0T-KoL" firstAttribute="leading" secondItem="V2p-Qb-gH1" secondAttribute="leadingMargin" constant="20" id="0Jz-Vk-dw0"/>
                             <constraint firstItem="EQL-SF-Up6" firstAttribute="centerX" secondItem="V2p-Qb-gH1" secondAttribute="centerX" id="22C-lP-5rW"/>
+                            <constraint firstItem="47D-pp-0KW" firstAttribute="top" secondItem="qC0-aC-Il2" secondAttribute="bottom" constant="8" id="4yz-tQ-ap2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LFY-0T-KoL" secondAttribute="trailing" constant="20" id="AfV-wZ-eTq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qC0-aC-Il2" secondAttribute="trailing" constant="20" id="C7W-L8-MIZ"/>
+                            <constraint firstItem="47D-pp-0KW" firstAttribute="leading" secondItem="V2p-Qb-gH1" secondAttribute="leadingMargin" constant="20" id="L4r-eK-UnT"/>
+                            <constraint firstItem="LFY-0T-KoL" firstAttribute="top" secondItem="EQL-SF-Up6" secondAttribute="bottom" constant="20" id="SDM-oD-9W1"/>
+                            <constraint firstItem="qC0-aC-Il2" firstAttribute="top" secondItem="LFY-0T-KoL" secondAttribute="bottom" constant="8" id="ZUQ-2a-WdA"/>
                             <constraint firstItem="EQL-SF-Up6" firstAttribute="width" secondItem="V2p-Qb-gH1" secondAttribute="width" multiplier="0.8" id="bkC-r7-iuc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="47D-pp-0KW" secondAttribute="trailing" constant="20" id="cS9-jR-jIh"/>
                             <constraint firstItem="MSZ-KV-QOf" firstAttribute="leading" secondItem="V2p-Qb-gH1" secondAttribute="leadingMargin" constant="20" id="hiW-g6-sWb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MSZ-KV-QOf" secondAttribute="trailing" constant="20" id="j3l-dJ-yGk"/>
+                            <constraint firstItem="qC0-aC-Il2" firstAttribute="leading" secondItem="V2p-Qb-gH1" secondAttribute="leadingMargin" constant="20" id="kq5-Kt-jxF"/>
                             <constraint firstItem="MSZ-KV-QOf" firstAttribute="centerX" secondItem="V2p-Qb-gH1" secondAttribute="centerX" id="lJK-de-n8c"/>
                             <constraint firstItem="w66-zK-ei4" firstAttribute="top" secondItem="MSZ-KV-QOf" secondAttribute="bottom" constant="60" id="tft-UR-g4y"/>
                             <constraint firstItem="EQL-SF-Up6" firstAttribute="top" secondItem="lcc-Uu-pz1" secondAttribute="bottom" constant="35" id="zX0-ja-cGf"/>
@@ -177,6 +204,9 @@
                     </view>
                     <connections>
                         <outlet property="qrcode" destination="EQL-SF-Up6" id="L9e-6W-jrI"/>
+                        <outlet property="sliderB" destination="47D-pp-0KW" id="cge-z0-9FP"/>
+                        <outlet property="sliderG" destination="qC0-aC-Il2" id="5pM-B7-Z6m"/>
+                        <outlet property="sliderR" destination="LFY-0T-KoL" id="1ri-6G-wLQ"/>
                         <outlet property="text" destination="MSZ-KV-QOf" id="xgh-Ug-O4X"/>
                     </connections>
                 </viewController>
