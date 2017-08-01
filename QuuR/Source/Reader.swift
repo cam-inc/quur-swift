@@ -71,6 +71,20 @@ public class Reader: UIView {
     public weak var delegate: ReaderDidDetectQRCode?
     #endif
 
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+
+    private func commonInit() {
+        NotificationCenter.default.addObserver(self, selector: #selector(Reader.didChangeOrientation(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+
     public func startDetection() {
 
         if captureSession.isRunning {
@@ -138,6 +152,21 @@ public class Reader: UIView {
 
         }
     }
+
+    func didChangeOrientation(notification: Notification) {
+        guard
+            let connection = videoLayer?.connection,
+            let device = notification.object as? UIDevice,
+            let videoOrientation = device.videoOrientation else {
+                return
+        }
+        videoLayer?.frame = bounds
+        connection.videoOrientation = videoOrientation
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 extension Reader: AVCaptureMetadataOutputObjectsDelegate {
@@ -156,6 +185,27 @@ extension Reader: AVCaptureMetadataOutputObjectsDelegate {
             }
 
             delegate?.reader(self, didDetect: text)
+        }
+    }
+}
+
+extension UIDevice {
+    var videoOrientation: AVCaptureVideoOrientation? {
+        switch orientation {
+        case .portraitUpsideDown:
+            return .portraitUpsideDown
+        case .portrait:
+            return .portrait
+        case .landscapeLeft:
+            return .landscapeRight
+        case .landscapeRight:
+            return .landscapeLeft
+        case.faceUp:
+            return .portrait
+        case .faceDown:
+            return .portraitUpsideDown
+        case .unknown:
+            return nil
         }
     }
 }

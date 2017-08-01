@@ -112,9 +112,6 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="maxZoomScale">
                                         <real key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="minZoomScale">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isZoomable" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
