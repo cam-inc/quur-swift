@@ -27,7 +27,10 @@ In iOS10+, you will need first to reasoning about the camera use. For that you'l
 ### Generate a QR Code from a given string.
 
 ```swift
-let code = QuuR.Code(from: "https://github.com/", quality: .high)
+var code = QuuR.Code(from: "https://github.com/", quality: .high)
+code.errorCorrectionLevel = .quartile
+code.backgroundColor = CIColor(red: 1.0, green: 1.0, blue: 1.0)
+code.color = CIColor(red: 0, green: 0, blue: 0)
 let imageView = UIImageView(image: code.image)
 view.addSubview(imageView)
 ```
