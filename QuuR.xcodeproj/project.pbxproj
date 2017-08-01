@@ -15,13 +15,13 @@
 		EADABD8D1F0DDD9100C424B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EADABD8B1F0DDD9100C424B5 /* Main.storyboard */; };
 		EADABD8F1F0DDD9100C424B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EADABD8E1F0DDD9100C424B5 /* Assets.xcassets */; };
 		EADABD921F0DDD9100C424B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EADABD901F0DDD9100C424B5 /* LaunchScreen.storyboard */; };
-		EADABDA01F0DE33300C424B5 /* function.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADABD9F1F0DE33300C424B5 /* function.swift */; };
 		EADABDA31F0E1A2900C424B5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADABDA21F0E1A2900C424B5 /* AVFoundation.framework */; };
 		EADABDA41F0E1A4600C424B5 /* QuuR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADABD671F0DDD7F00C424B5 /* QuuR.framework */; };
 		EADABDA71F0E1D0800C424B5 /* QuuR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EADABD671F0DDD7F00C424B5 /* QuuR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EADABDAE1F0E386B00C424B5 /* GeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADABDAD1F0E386B00C424B5 /* GeneratorViewController.swift */; };
 		EAEB74DE1F2F32E50034D073 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEEBAE81F2F2E4E00DAC6C9 /* Reader.swift */; };
 		EAEB74E01F2F33030034D073 /* ReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEB74DF1F2F33030034D073 /* ReaderTests.swift */; };
+		EAEB74E21F3023810034D073 /* ErrorCorrectionLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEB74E11F3023810034D073 /* ErrorCorrectionLevel.swift */; };
 		EAEB74E41F3066A50034D073 /* UINavigationController+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEB74E31F3066A50034D073 /* UINavigationController+Orientation.swift */; };
 		EAEEBAE91F2F2E4E00DAC6C9 /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEEBAE81F2F2E4E00DAC6C9 /* Reader.swift */; };
 		EAEEBAEB1F2F2E6D00DAC6C9 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEEBAEA1F2F2E6D00DAC6C9 /* Code.swift */; };
@@ -73,10 +73,10 @@
 		EADABD8E1F0DDD9100C424B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EADABD911F0DDD9100C424B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EADABD931F0DDD9100C424B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EADABD9F1F0DE33300C424B5 /* function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = function.swift; sourceTree = "<group>"; };
 		EADABDA21F0E1A2900C424B5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EADABDAD1F0E386B00C424B5 /* GeneratorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratorViewController.swift; sourceTree = "<group>"; };
 		EAEB74DF1F2F33030034D073 /* ReaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderTests.swift; sourceTree = "<group>"; };
+		EAEB74E11F3023810034D073 /* ErrorCorrectionLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCorrectionLevel.swift; sourceTree = "<group>"; };
 		EAEB74E31F3066A50034D073 /* UINavigationController+Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Orientation.swift"; sourceTree = "<group>"; };
 		EAEEBAE81F2F2E4E00DAC6C9 /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
 		EAEEBAEA1F2F2E6D00DAC6C9 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
@@ -170,9 +170,9 @@
 		EADABD9B1F0DDFF100C424B5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				EADABD9F1F0DE33300C424B5 /* function.swift */,
 				EAEEBAEA1F2F2E6D00DAC6C9 /* Code.swift */,
 				EAEEBAEC1F2F2E8000DAC6C9 /* Quality.swift */,
+				EAEB74E11F3023810034D073 /* ErrorCorrectionLevel.swift */,
 				EAEEBAE81F2F2E4E00DAC6C9 /* Reader.swift */,
 			);
 			path = Source;
@@ -336,7 +336,7 @@
 				EAEEBAEB1F2F2E6D00DAC6C9 /* Code.swift in Sources */,
 				EAEEBAE91F2F2E4E00DAC6C9 /* Reader.swift in Sources */,
 				EAEEBAED1F2F2E8000DAC6C9 /* Quality.swift in Sources */,
-				EADABDA01F0DE33300C424B5 /* function.swift in Sources */,
+				EAEB74E21F3023810034D073 /* ErrorCorrectionLevel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
