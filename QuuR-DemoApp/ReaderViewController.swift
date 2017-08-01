@@ -31,13 +31,13 @@ extension ReaderViewController: ReaderDidDetectQRCode {
             let url = URL(string: text) else {
             return
         }
-        let alert = UIAlertController(title: "QRコード読み取り", message: text, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Result", message: text, preferredStyle: .actionSheet)
         if UIApplication.shared.canOpenURL(url) {
-            alert.addAction(UIAlertAction(title: "Safariで開く", style: .default, handler: { (action: UIAlertAction) in
+            alert.addAction(UIAlertAction(title: "Open in Safari", style: .default, handler: { (action: UIAlertAction) in
                     UIApplication.shared.openURL(url)
             }))
         }
-        alert.addAction(UIAlertAction(title: "閉じる", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
 }
