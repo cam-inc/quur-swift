@@ -2,14 +2,18 @@
 //  GeneratorViewController.swift
 //  QuuR
 //
-//  Created by 江尻 幸生 on 2017/07/06.
-//  Copyright © 2017年 Yukio Ejiri. All rights reserved.
+//  Created by Yukio Ejiri on 2017/07/06.
+//  Copyright © 2017年 C.A.Mobile, LTD. All rights reserved.
 //
 
 import UIKit
 import QuuR
 
 class GeneratorViewController: UIViewController {
+
+    @IBOutlet weak var sliderR: UISlider!
+    @IBOutlet weak var sliderG: UISlider!
+    @IBOutlet weak var sliderB: UISlider!
 
     @IBOutlet fileprivate weak var qrcode: UIImageView!
     @IBOutlet private weak var text: UITextField!
@@ -49,6 +53,11 @@ class GeneratorViewController: UIViewController {
         UIView.animate(withDuration: duration, animations: { () in
             self.view.transform = CGAffineTransform.identity
         })
+    }
+
+    @IBAction func updateRGB(_ sender: Any) {
+        code?.color = CIColor(red: CGFloat(sliderR.value), green: CGFloat(sliderG.value), blue: CGFloat(sliderB.value))
+        qrcode.image = code?.image
     }
 
     deinit {
