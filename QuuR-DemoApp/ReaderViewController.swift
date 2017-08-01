@@ -2,8 +2,8 @@
 //  ReaderViewController.swift
 //  QuuR-DemoApp
 //
-//  Created by 江尻 幸生 on 2017/07/06.
-//  Copyright © 2017年 Yukio Ejiri. All rights reserved.
+//  Created by Yukio Ejiri on 2017/07/06.
+//  Copyright © 2017年 C.A.Mobile, LTD. All rights reserved.
 //
 
 import UIKit
@@ -26,6 +26,18 @@ class ReaderViewController: UIViewController {
 extension ReaderViewController: ReaderDidDetectQRCode {
 
     public func reader(_ reader: Reader, didDetect text: String) {
-        print(text)
+        guard
+            (presentedViewController == nil),
+            let url = URL(string: text) else {
+            return
+        }
+        let alert = UIAlertController(title: "QRコード読み取り", message: text, preferredStyle: .actionSheet)
+        if UIApplication.shared.canOpenURL(url) {
+            alert.addAction(UIAlertAction(title: "Safariで開く", style: .default, handler: { (action: UIAlertAction) in
+                    UIApplication.shared.openURL(url)
+            }))
+        }
+        alert.addAction(UIAlertAction(title: "閉じる", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
