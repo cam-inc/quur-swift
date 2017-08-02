@@ -15,7 +15,11 @@ public struct Code {
         guard let ciImage = ciImage else {
             return nil
         }
-        return UIImage(ciImage: ciImage)
+        let qrCode = UIImage(ciImage: ciImage)
+        if let centerImage = centerImage {
+            return qrCode.compositeToCenter(image: centerImage)
+        }
+        return qrCode
     }
 
     /// CIImage QRCode representation
@@ -59,6 +63,10 @@ public struct Code {
 
     /// Affected to a size to generated
     public var quality: Quality
+
+    /// An image to put on center of the QRCode.
+    /// Highly recomended to up the error correction level if set an image.
+    public var centerImage: UIImage?
 
     /// A level to recovery data if the QRCode is dirty or damaged
     public var errorCorrectionLevel: ErrorCorrectionLevel = .low
