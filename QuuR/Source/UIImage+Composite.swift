@@ -38,9 +38,6 @@ extension UIImage {
     }
 
     internal func scaledToFitTo(newSize: CGSize, image: UIImage) -> UIImage? {
-        if image.size.width < newSize.width && image.size.height < newSize.height {
-            return image.copy() as? UIImage
-        }
         let widthScale: CGFloat = newSize.width / image.size.width
         let heightScale: CGFloat = newSize.height / image.size.height
         let scaleFactor: CGFloat = (widthScale < heightScale) ? widthScale : heightScale
