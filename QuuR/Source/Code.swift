@@ -53,7 +53,20 @@ public struct Code {
     public var encoding = String.Encoding.utf8
 
     /// Foreground color of the QRCode
-    public var color = CIColor(red: 0, green: 0, blue: 0)
+    public var color: CIColor {
+        get {
+            if isAutoAdjustingColor && (centerImage != nil) {
+                return CIColor(cgColor: centerImage!.getColors().primary.cgColor)
+            }
+            return _color
+        }
+        set {
+            _color = color
+        }
+    }
+
+    /// Internal managed CIColor for QRCode
+    private var _color = CIColor(red: 0, green: 0, blue: 0)
 
     /// Background color of the QRCode
     public var backgroundColor = CIColor(red: 1, green: 1, blue: 1)
@@ -64,9 +77,12 @@ public struct Code {
     /// Affected to a size to generated
     public var quality: Quality
 
-    /// An image to put on center of the QRCode.
-    /// Highly recomended to up the error correction level if set an image.
+    /// An image to put on center of the QRCode
+    /// Highly recomended to up the error correction level if set an image
     public var centerImage: UIImage?
+
+    /// Auto update a foreground color of QRCode by the centerImage colors
+    public var isAutoAdjustingColor = false
 
     /// A level to recovery data if the QRCode is dirty or damaged
     public var errorCorrectionLevel: ErrorCorrectionLevel = .low
