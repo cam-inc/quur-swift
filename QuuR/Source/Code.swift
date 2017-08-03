@@ -61,7 +61,7 @@ public struct Code {
             return _color
         }
         set {
-            _color = color
+            _color = newValue
         }
     }
 
