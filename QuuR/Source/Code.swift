@@ -82,7 +82,7 @@ public struct Code {
     public var centerImage: UIImage?
 
     /// Auto update a foreground color of QRCode by the centerImage colors
-    public var isAutoAdjustingColor: Bool = true
+    public var isAutoAdjustingColor = false
 
     /// A level to recovery data if the QRCode is dirty or damaged
     public var errorCorrectionLevel: ErrorCorrectionLevel = .low
