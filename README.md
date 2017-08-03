@@ -56,7 +56,15 @@ code.isAutoAdjustingColor = true
 let imageView = UIImageView(image: code.image)
 ```
 
-### Read a text from a QR Code.
+### Read from UIImage
+
+`StaticReader.read` will return an optional array of strings `[String]?`
+
+```swift
+let texts = QuuR.StaticReader.read(image: SomeQRCodeImage)
+```
+
+### Read QRCode from Camera input
 
 ```swift
 class ViewController: UIViewController {

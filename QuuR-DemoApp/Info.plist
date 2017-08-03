@@ -21,7 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>QRコードの読み取りに使用します。</string>
+	<string>To read QRCode</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To read QRCode</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
