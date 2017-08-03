@@ -4,6 +4,8 @@
 
 QuuR-swift makes it easy to deal with QR Code data in Swift.
 
+![](https://user-images.githubusercontent.com/2027132/28912873-f946e77e-7870-11e7-9ed5-a7121a6f6e92.png)
+
 ## Requirements
 
 - iOS 8.0+
@@ -26,13 +28,32 @@ In iOS10+, you will need first to reasoning about the camera use. For that you'l
 ![capture of Info.plist](./assets/camera-usage.png)
 ### Generate a QR Code from a given string.
 
+Standard QRCode
+
+```swift
+let code = QuuR.Code(from: "https://github.com/", quality: .high)
+let imageView = UIImageView(image: code.image)
+```
+
+Colored QRCode
+
 ```swift
 var code = QuuR.Code(from: "https://github.com/", quality: .high)
-code.errorCorrectionLevel = .quartile
-code.backgroundColor = CIColor(red: 1.0, green: 1.0, blue: 1.0)
+code.backgroundColor = CIColor(red: 0.0, green: 1.0, blue: 0.5)
 code.color = CIColor(red: 0, green: 0, blue: 0)
 let imageView = UIImageView(image: code.image)
-view.addSubview(imageView)
+```
+
+Design QRCode
+
+When you set true to isAutoAdjustingColor, QuuR.Code will detect the primary color of the centerImage and use it to the foreground color of the QRCode.
+
+```swift
+var code = QuuR.Code(from: "https://github.com/", quality: .high)
+code.errorCorrectionLevel = .high
+code.centerImage = UIImage(named: "SomeImage")
+code.isAutoAdjustingColor = true
+let imageView = UIImageView(image: code.image)
 ```
 
 ### Read a text from a QR Code.
