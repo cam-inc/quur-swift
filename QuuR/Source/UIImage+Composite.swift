@@ -16,7 +16,7 @@ extension UIImage {
             return nil
         }
 
-        UIGraphicsBeginImageContextWithOptions(size, true, UIScreen.main.scale)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         defer {
             UIGraphicsEndImageContext()
         }
@@ -30,7 +30,7 @@ extension UIImage {
     }
 
     internal func scaledTo(size: CGSize, rect: CGRect, image: UIImage) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(size, true, UIScreen.main.scale)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         image.draw(in: rect)
         let finalImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
