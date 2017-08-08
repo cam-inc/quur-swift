@@ -3,7 +3,7 @@
 //  QuuR
 //
 //  Created by 江尻 幸生 on 2017/08/03.
-//  Copyright © 2017年 Yukio Ejiri. All rights reserved.
+//  Copyright © 2017 Yukio Ejiri. All rights reserved.
 //
 
 import UIKit

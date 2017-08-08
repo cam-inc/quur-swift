@@ -3,7 +3,7 @@
 //  QuuR
 //
 //  Created by Yukio Ejiri on 2017/07/31.
-//  Copyright © 2017年 C.A.Mobile, LTD. All rights reserved.
+//  Copyright © 2017 C.A.Mobile, LTD. All rights reserved.
 //
 
 import UIKit
