@@ -25,7 +25,8 @@ Don't forget to add `--use-ssh` flag to Carthage command.
 
 In iOS10+, you will need first to reasoning about the camera use. For that you'll need to add the **Privacy - Camera Usage Description** *(NSCameraUsageDescription)* field in your Info.plist:
 
-![capture of Info.plist](./assets/camera-usage.png)
+![capture of Info.plist](https://user-images.githubusercontent.com/2027132/29057738-8a3f3c70-7c47-11e7-8220-2508746c2da2.png)
+
 ### Generate a QR Code from a given string.
 
 Standard QRCode
