@@ -13,7 +13,7 @@ import AVFoundation
     func reader(_ reader: Reader, didDetect text: String)
 }
 
-public class Reader: UIView {
+open class Reader: UIView {
 
     let minZoomScale: CGFloat = 1.0
 
@@ -73,16 +73,18 @@ public class Reader: UIView {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
     }
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
     }
 
-    private func commonInit() {
+    open override func willMove(toSuperview newSuperview: UIView?) {
         NotificationCenter.default.addObserver(self, selector: #selector(Reader.didChangeOrientation(notification:)), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+
+    open override func removeFromSuperview() {
+        NotificationCenter.default.removeObserver(self)
     }
 
     public func startDetection() {
@@ -162,10 +164,6 @@ public class Reader: UIView {
         }
         videoLayer?.frame = bounds
         connection.videoOrientation = videoOrientation
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
 }
 
