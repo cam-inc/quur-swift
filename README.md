@@ -19,8 +19,6 @@ You can use [Carthage](https://github.com/Carthage/Carthage) to install `QuuR-sw
 github "cam-inc/QuuR-swift"
 ```
 
-Don't forget to add `--use-ssh` flag to Carthage command.
-
 ## Usage
 
 In iOS10+, you will need first to reasoning about the camera use. For that you'll need to add the **Privacy - Camera Usage Description** *(NSCameraUsageDescription)* field in your Info.plist:
