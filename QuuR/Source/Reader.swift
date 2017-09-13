@@ -20,7 +20,7 @@ open class Reader: UIView {
     public static var ReaderStateChangedNotification = Notification.Name("com.camplat.QuuR.Reader.DidChangeReaderState")
 
     /// Status of the reader object
-    private(set) var status: State = .unknown {
+    public private(set) var status: State = .unknown {
         didSet {
             NotificationCenter.default.post(name: Reader.ReaderStateChangedNotification, object: status)
             switch status {
@@ -102,7 +102,7 @@ open class Reader: UIView {
     }
 
     /// Start using the camera and detecting QRCode from the video input.
-    public func startDetection() {
+    open func startDetection() {
         switch status {
         case .suspend:
             status = .ready
@@ -168,7 +168,7 @@ open class Reader: UIView {
     }
 
     /// Stop updating the video input.
-    public func stopDetection() {
+    open func stopDetection() {
         status = .suspend
     }
 
