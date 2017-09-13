@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EABEC4FB1F3AF2A600F87C62 /* UIAlertController+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABEC4FA1F3AF2A600F87C62 /* UIAlertController+Orientation.swift */; };
 		EADABD711F0DDD7F00C424B5 /* QuuR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EADABD671F0DDD7F00C424B5 /* QuuR.framework */; };
 		EADABD761F0DDD7F00C424B5 /* QuuRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADABD751F0DDD7F00C424B5 /* QuuRTests.swift */; };
 		EADABD781F0DDD7F00C424B5 /* QuuR.h in Headers */ = {isa = PBXBuildFile; fileRef = EADABD6A1F0DDD7F00C424B5 /* QuuR.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -64,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EABEC4FA1F3AF2A600F87C62 /* UIAlertController+Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Orientation.swift"; sourceTree = "<group>"; };
 		EADABD671F0DDD7F00C424B5 /* QuuR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuuR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EADABD6A1F0DDD7F00C424B5 /* QuuR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuuR.h; sourceTree = "<group>"; };
 		EADABD6B1F0DDD7F00C424B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				EADABD891F0DDD9100C424B5 /* ReaderViewController.swift */,
 				EAEB74EF1F332A880034D073 /* StaticReaderViewController.swift */,
 				EAEB74E31F3066A50034D073 /* UINavigationController+Orientation.swift */,
+				EABEC4FA1F3AF2A600F87C62 /* UIAlertController+Orientation.swift */,
 				EADABD8B1F0DDD9100C424B5 /* Main.storyboard */,
 				EADABD8E1F0DDD9100C424B5 /* Assets.xcassets */,
 				EADABD901F0DDD9100C424B5 /* LaunchScreen.storyboard */,
@@ -370,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EADABD8A1F0DDD9100C424B5 /* ReaderViewController.swift in Sources */,
+				EABEC4FB1F3AF2A600F87C62 /* UIAlertController+Orientation.swift in Sources */,
 				EAEB74E41F3066A50034D073 /* UINavigationController+Orientation.swift in Sources */,
 				EAEB74F01F332A880034D073 /* StaticReaderViewController.swift in Sources */,
 				EADABDAE1F0E386B00C424B5 /* GeneratorViewController.swift in Sources */,
@@ -591,7 +595,7 @@
 				INFOPLIST_FILE = "QuuR-DemoApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.camobile.QuuR-DemoApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.camplat.QuuR-DemoApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -602,11 +606,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 849UL7TY33;
 				INFOPLIST_FILE = "QuuR-DemoApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.camobile.QuuR-DemoApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.camplat.QuuR-DemoApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

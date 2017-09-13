@@ -31,12 +31,6 @@ class StaticReaderViewController: UIViewController {
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
     @IBAction func readFromPhotoLibrary(_ sender: Any) {
 
         guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
@@ -54,7 +48,6 @@ extension StaticReaderViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             qrCodeImage = image
-
         }
         picker.dismiss(animated: true, completion: nil)
     }
