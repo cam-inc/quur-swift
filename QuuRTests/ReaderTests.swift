@@ -17,12 +17,12 @@ class ReaderTest: XCTestCase {
         super.setUp()
         reader = Reader()
     }
-    
+
     override func tearDown() {
         super.tearDown()
         reader = nil
     }
-    
+
     func testZoomableOn() {
         reader.isZoomable = true
         let recognizer = (reader.gestureRecognizers ?? []).first as? UIPinchGestureRecognizer

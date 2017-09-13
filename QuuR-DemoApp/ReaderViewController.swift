@@ -15,11 +15,29 @@ class ReaderViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleChangeReaderState(notification:)), name: Reader.ReaderStateChangedNotification, object: nil)
         reader.startDetection()
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .all
+    }
+
+    func handleChangeReaderState(notification: Notification) {
+        guard let state = notification.object as? Reader.State else {
+            return
+        }
+        print(state)
+        switch state {
+        case .configurationFailed(let error):
+            print(error.message)
+        default:
+            break
+        }
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -37,7 +55,12 @@ extension ReaderViewController: ReaderDidDetectQRCode {
                     UIApplication.shared.openURL(url)
             }))
         }
-        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: { (action: UIAlertAction) in
+            reader.startDetection()
+        }))
+
+        present(alert, animated: true) {
+            reader.stopDetection()
+        }
     }
 }
